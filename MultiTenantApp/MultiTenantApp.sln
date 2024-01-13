@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiTenantApp", "MultiTenantApp.csproj", "{05D98CA2-3DD1-4B68-8CC3-1E3C4A504D1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTenantApp.Test", "..\MultiTenantAppTests\MultiTenantApp.Test.csproj", "{529002A2-BDE3-4911-B788-950C7480902F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{05D98CA2-3DD1-4B68-8CC3-1E3C4A504D1A} = {05D98CA2-3DD1-4B68-8CC3-1E3C4A504D1A}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05D98CA2-3DD1-4B68-8CC3-1E3C4A504D1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D98CA2-3DD1-4B68-8CC3-1E3C4A504D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05D98CA2-3DD1-4B68-8CC3-1E3C4A504D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D98CA2-3DD1-4B68-8CC3-1E3C4A504D1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{529002A2-BDE3-4911-B788-950C7480902F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529002A2-BDE3-4911-B788-950C7480902F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529002A2-BDE3-4911-B788-950C7480902F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529002A2-BDE3-4911-B788-950C7480902F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F20590B5-A551-4C94-9963-73568F69FC5C}
+	EndGlobalSection
+EndGlobal

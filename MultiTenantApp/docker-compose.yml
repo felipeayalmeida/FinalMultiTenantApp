@@ -1,0 +1,42 @@
+version: '3.4'
+
+networks:
+  dev:
+    driver: bridge
+
+services:
+  multitenant-app:
+    image: docker.io/library/multitenantapp11
+    depends_on:
+      - "app_db"
+    container_name: multitenantapp_services
+    ports:
+      - "8088:80"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=app_db;Database=MultiTenantDb;User=SA;Password=MinhaSenh@123;TrustServerCertificate=True;
+      - ASPNETCORE_URLS=http://+:80
+    networks:
+      - dev
+
+  app_db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    user: root
+    container_name: 'app_db'
+    environment:
+      SA_PASSWORD: "MinhaSenh@123"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+    restart: always
+    volumes:
+      - app_data:/var/opt/mssql/data
+    networks:
+      - dev
+
+volumes:
+  app_data:
+    
