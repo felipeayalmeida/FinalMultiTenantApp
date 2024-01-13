@@ -66,7 +66,7 @@ namespace MultiTenantApp.Controllers
 
         }
 
-        [HttpPut]
+        [HttpPut("updateSchedule")]
         public async Task<IActionResult> UpdateCustomerSchedule([FromBody]UpdateSchedule updateSchedule)
         {
             var command = new UpdateScheduleCommand(updateSchedule);
@@ -78,5 +78,16 @@ namespace MultiTenantApp.Controllers
                 return BadRequest();
         }
 
+        [HttpPut("updateCustomerStatus")]
+        public async Task<IActionResult> UpdateCustomerStatus([FromBody] UpdateCustomerStatus updateStatus)
+        {
+            var command = new UpdateCustomerStatusCommand(updateStatus);
+            var newCustomer = await _mediator.Send(command);
+
+            if (newCustomer != null)
+                return Ok(newCustomer);
+            else
+                return BadRequest();
+        }
     }
 }

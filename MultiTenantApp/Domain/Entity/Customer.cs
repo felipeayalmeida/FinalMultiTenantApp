@@ -9,5 +9,6 @@ namespace MultiTenantApp.Domain.Entity
         public DateTime Schedule { get; set; }
         public int SecretaryId { get; set; }
         public string TenantId { get; set; }
+        public bool CustomerShowedUp { get; set; }
     }
 }

@@ -6,7 +6,7 @@ networks:
 
 services:
   multitenant-app:
-    image: docker.io/library/multitenantapp11
+    image: docker.io/library/multitenantapp12
     depends_on:
       - "app_db"
     container_name: multitenantapp_services
