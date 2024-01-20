@@ -38,9 +38,9 @@ namespace MultiTenantApp.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteCustomer(DeleteCustomer deleteCustomerId)
+        public async Task<IActionResult> DeleteCustomer([FromQuery] int id)
         {
-            var comand = new DeleteCustomerCommand(deleteCustomerId);
+            var comand = new DeleteCustomerCommand(id);
             var response = await _mediator.Send(comand);
 
             if (response != null)

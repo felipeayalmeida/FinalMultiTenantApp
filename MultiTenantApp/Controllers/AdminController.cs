@@ -45,10 +45,10 @@ namespace MultiTenantApp.Controllers
             return BadRequest("Nao foi possível criar usuário");
         }
 
-        [HttpDelete()]
-        public async Task<IActionResult> DeleteUser(DeleteUser deleteUser)
+        [HttpDelete("user")]
+        public async Task<IActionResult> DeleteUser([FromQuery] int id)
         {
-            var comand = new DeleteUserCommand(deleteUser);
+            var comand = new DeleteUserCommand(id);
             var response = await _mediator.Send(comand);
 
             if (response != null)

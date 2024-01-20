@@ -38,6 +38,15 @@ builder.Services.AddDbContext<TenantDbContext>(
 
 builder.Services.AddMediatR(c => c.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAnyOrigin", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 var jwtSecretKey = builder.Configuration.GetSection("JwtSettings")["SecretKey"];
 
 var tokenValidationParameters = new TokenValidationParameters
@@ -60,6 +69,7 @@ builder.Services.AddAuthorization();
 
 
 var app = builder.Build();
+app.UseCors("AllowAnyOrigin");
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())

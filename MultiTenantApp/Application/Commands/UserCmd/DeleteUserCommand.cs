@@ -7,9 +7,9 @@ namespace MultiTenantApp.Application.Commands.UserCmd
     {
         public DeleteUser DeleteUser { get; }
 
-        public DeleteUserCommand(DeleteUser deleteUser)
+        public DeleteUserCommand(int id)
         {
-            DeleteUser = deleteUser;
+            DeleteUser = new DeleteUser() { Id = id };
         }
     }
 }

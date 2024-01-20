@@ -70,7 +70,7 @@ namespace MultiTenantApp.Application.Handlers.AuthHdl
 
         private bool validatingUser(LoginCommand request, User user)
         {
-            if (user != null && request.Login.Tenant != null && user.Email == request.Login.Email && user.Password == request.Login.Password)
+            if (user != null && request.Login.Tenant == user.TenantId && user.Email == request.Login.Email && user.Password == request.Login.Password)
             {
                 return true;
             }
