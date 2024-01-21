@@ -38,7 +38,8 @@ namespace MultiTenantApp.Application.Handlers.CustomerHdl
                 {
                     Name = request.CreateCustomerRequest.Name,
                     Schedule = request.CreateCustomerRequest.Schedule,
-                    SecretaryId = user.Id
+                    SecretaryId = user.Id,
+                    CustomerShowedUp = false
                 };
 
                 await _customerRepository.CreateCustomer(newCustomer);

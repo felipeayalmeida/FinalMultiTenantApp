@@ -38,9 +38,9 @@ namespace MultiTenantApp.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteCustomer(DeleteCustomer deleteCustomerId)
+        public async Task<IActionResult> DeleteCustomer([FromQuery] int id)
         {
-            var comand = new DeleteCustomerCommand(deleteCustomerId);
+            var comand = new DeleteCustomerCommand(id);
             var response = await _mediator.Send(comand);
 
             if (response != null)
@@ -66,7 +66,7 @@ namespace MultiTenantApp.Controllers
 
         }
 
-        [HttpPut]
+        [HttpPut("updateSchedule")]
         public async Task<IActionResult> UpdateCustomerSchedule([FromBody]UpdateSchedule updateSchedule)
         {
             var command = new UpdateScheduleCommand(updateSchedule);
@@ -75,8 +75,19 @@ namespace MultiTenantApp.Controllers
             if (newCustomer != null)
                 return Ok(newCustomer);
             else
-                return BadRequest();
+                return BadRequest("Verifique os dados. A data não pode ser anterior a atual");
         }
 
+        [HttpPut("updateCustomerStatus")]
+        public async Task<IActionResult> UpdateCustomerStatus([FromBody] UpdateCustomerStatus updateStatus)
+        {
+            var command = new UpdateCustomerStatusCommand(updateStatus);
+            var newCustomer = await _mediator.Send(command);
+
+            if (newCustomer != null)
+                return Ok(newCustomer);
+            else
+                return BadRequest();
+        }
     }
 }

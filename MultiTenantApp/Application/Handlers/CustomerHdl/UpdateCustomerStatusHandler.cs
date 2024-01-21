@@ -9,33 +9,33 @@ using System.Security.Claims;
 
 namespace MultiTenantApp.Application.Handlers.CustomerHdl
 {
-    public class UpdateScheduleHandler : IRequestHandler<UpdateScheduleCommand, Customer>
+    public class UpdateCustomerStatusHandler : IRequestHandler<UpdateCustomerStatusCommand, Customer>
     {
         private readonly ICustomerRepository _customerRepository;
-        public UpdateScheduleHandler(ICustomerRepository customerRepository)
+        public UpdateCustomerStatusHandler(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
         }
 
-        public async Task<Customer> Handle(UpdateScheduleCommand request, CancellationToken cancellationToken)
+        public async Task<Customer> Handle(UpdateCustomerStatusCommand request, CancellationToken cancellationToken)
         {
-            var validator = new UpdateScheduleModelValidator();
-            ValidationResult result = validator.Validate(request.UpdateScheduleRequest);
-            if (!result.IsValid)
-            {
-                return null;
-            }
+            //var validator = new UpdateScheduleModelValidator();
+            //ValidationResult result = validator.Validate(request.UpdateScheduleRequest);
+            //if (!result.IsValid)
+            //{
+            //    return null;
+            //}
 
-            var customer = await _customerRepository.GetCustomerById(request.UpdateScheduleRequest.CustomerId);
+            var customer = await _customerRepository.GetCustomerById(request.UpdateStatusRequest.CustomerId);
             if (customer != null)
             {
                 var updatedCustomer = new Customer()
                 {
                     Id = customer.Id,
                     Name = customer.Name,
-                    Schedule = request.UpdateScheduleRequest.Schedule,
+                    Schedule = customer.Schedule,
                     SecretaryId = customer.SecretaryId,
-                    CustomerShowedUp = customer.CustomerShowedUp
+                    CustomerShowedUp = request.UpdateStatusRequest.ShowedUp
                 };
 
                 await _customerRepository.UpdateCustomer(updatedCustomer);

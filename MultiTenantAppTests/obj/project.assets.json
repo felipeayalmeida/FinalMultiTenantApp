@@ -9291,11 +9291,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\MultiTenantAppTests\\MultiTenantApp.Test.csproj",
+      "projectUniqueName": "C:\\TesteRepo\\FinalMultiTenantApp\\MultiTenantAppTests\\MultiTenantApp.Test.csproj",
       "projectName": "MultiTenantApp.Test",
-      "projectPath": "C:\\Projetos\\MultiTenantAppTests\\MultiTenantApp.Test.csproj",
+      "projectPath": "C:\\TesteRepo\\FinalMultiTenantApp\\MultiTenantAppTests\\MultiTenantApp.Test.csproj",
       "packagesPath": "C:\\Users\\Domvs iT\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\MultiTenantAppTests\\obj\\",
+      "outputPath": "C:\\TesteRepo\\FinalMultiTenantApp\\MultiTenantAppTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Domvs iT\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9313,8 +9313,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Projetos\\MultiTenantApp\\MultiTenantApp.csproj": {
-              "projectPath": "C:\\Projetos\\MultiTenantApp\\MultiTenantApp.csproj"
+            "C:\\TesteRepo\\FinalMultiTenantApp\\MultiTenantApp\\MultiTenantApp.csproj": {
+              "projectPath": "C:\\TesteRepo\\FinalMultiTenantApp\\MultiTenantApp\\MultiTenantApp.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KgC8Im5zrtZ5bMDMLIoryE4t9oHr2VQOHqZanxckNIM4krLNY9UYHERR+PJQQKc/FOFYDTrFV7J9/nGfu+Y1gQ==",
+  "dgSpecHash": "RT62MAyvzkAPcNxRT6hdFK5xrrGUUmCsQpLBMNskZ/BrXPeCN+k3hpiipIccbrNI7wfE9VPqFiSfhwaIzvVsig==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\MultiTenantAppTests\\MultiTenantApp.Test.csproj",
+  "projectFilePath": "C:\\TesteRepo\\FinalMultiTenantApp\\MultiTenantAppTests\\MultiTenantApp.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Domvs iT\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Domvs iT\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

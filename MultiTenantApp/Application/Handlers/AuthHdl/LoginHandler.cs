@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using Azure.Core;
+using FluentValidation.Results;
 using MediatR;
 using Microsoft.IdentityModel.Tokens;
 using MultiTenantApp.Application.Commands.AuthCmd;
@@ -34,7 +35,7 @@ namespace MultiTenantApp.Application.Handlers.AuthHdl
             var users = _mediator.Send(query);
 
             var user = users.Result.Where(u => u.Email == request.Login.Email).FirstOrDefault();
-            if (user != null && request.Login.Tenant != null)
+            if (validatingUser(request,user))
             {
                 var token = GenerateJwtToken(user, request.Login);
                 return new { Token = token };
@@ -65,6 +66,15 @@ namespace MultiTenantApp.Application.Handlers.AuthHdl
 
             var tokenHandler = new JwtSecurityTokenHandler();
             return tokenHandler.WriteToken(token);
+        }
+
+        private bool validatingUser(LoginCommand request, User user)
+        {
+            if (user != null && request.Login.Tenant == user.TenantId && user.Email == request.Login.Email && user.Password == request.Login.Password)
+            {
+                return true;
+            }
+            return false;
         }
 
     }
