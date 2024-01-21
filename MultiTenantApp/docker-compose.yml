@@ -6,7 +6,7 @@ networks:
 
 services:
   multitenant-app:
-    image: docker.io/library/multitenantapp15
+    image: docker.io/library/multitenantapp16
     depends_on:
       - "app_db"
     container_name: multitenantapp_services
@@ -38,7 +38,7 @@ services:
       - dev
 
   react-app:
-    image: docker.io/library/multitenant-frontend
+    image: docker.io/library/multitenant-frontend2
     container_name: react_app_container
     ports:
       - "3000:3000"

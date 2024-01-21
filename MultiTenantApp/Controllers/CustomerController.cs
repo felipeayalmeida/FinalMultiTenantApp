@@ -75,7 +75,7 @@ namespace MultiTenantApp.Controllers
             if (newCustomer != null)
                 return Ok(newCustomer);
             else
-                return BadRequest();
+                return BadRequest("Verifique os dados. A data não pode ser anterior a atual");
         }
 
         [HttpPut("updateCustomerStatus")]
